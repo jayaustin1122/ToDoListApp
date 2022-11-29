@@ -1,10 +1,13 @@
 package com.projects.todolist
 
-import android.view.LayoutInflater
-import android.view.ViewGroup
+import android.annotation.SuppressLint
+import android.view.*
+import androidx.recyclerview.widget.AsyncListDiffer
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.projects.todolist.databinding.RowItemBinding
 import com.projects.todolist.db.ToDo
+
 
 class TodoAdapter(var todoModel : MutableList<ToDo>):RecyclerView.Adapter<TodoAdapter.ToDoViewHolder>() {
 
@@ -18,14 +21,14 @@ class TodoAdapter(var todoModel : MutableList<ToDo>):RecyclerView.Adapter<TodoAd
         return ToDoViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: ToDoViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ToDoViewHolder, @SuppressLint("RecyclerView") position: Int) {
         holder.binding.apply {
-            tvName.text = todoModel[position].todo
+            checkBox.text = todoModel[position].todo
             btnDelete.setOnClickListener(){
                 onItemDelete?.invoke(todoModel[position],position)
             }
-            btnEdit.setOnClickListener(){
-                onUpdate?.invoke(todoModel[position],position)
+            btnEdit.setOnClickListener() {
+                onUpdate?.invoke(todoModel[position], position)
             }
         }
     }
