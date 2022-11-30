@@ -19,10 +19,11 @@
             android:id="@+id/topAppBar"
             style="@style/Widget.MaterialComponents.Toolbar.Primary"
             android:layout_width="match_parent"
+            android:background="@color/maroon"
             android:layout_height="?attr/actionBarSize"
             app:menu="@menu/top_app_bar"
-            app:navigationIcon="@drawable/ic_baseline_view_headline_24"
-            app:title="To Do List"
+            app:title="To-do List"
+            app:titleTextAppearance="@style/Toolbar.TitleText"
             app:titleCentered="true" />
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -47,6 +48,34 @@
         android:text="@string/delete_all"
         android:textColor="@color/Blue"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="48dp"
+        android:clickable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/ic_baseline_add_24"
+        tools:ignore="SpeakableTextPresentCheck"
+        android:backgroundTint="@color/maroon" />
+
+    <TextView
+        android:id="@+id/tvAllTasks"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="Your Task's"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:paddingStart="10dp"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/myRecycler"
+        app:layout_constraintEnd_toStartOf="@+id/btnDeleteAll"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appBarLayout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

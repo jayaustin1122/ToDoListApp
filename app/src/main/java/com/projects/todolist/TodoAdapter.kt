@@ -21,7 +21,7 @@ class TodoAdapter(var todoModel : MutableList<ToDo>):RecyclerView.Adapter<TodoAd
         return ToDoViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: ToDoViewHolder, @SuppressLint("RecyclerView") position: Int) {
+    override fun onBindViewHolder(holder: ToDoViewHolder,position: Int) {
         holder.binding.apply {
             checkBox.text = todoModel[position].todo
             btnDelete.setOnClickListener(){
@@ -36,4 +36,7 @@ class TodoAdapter(var todoModel : MutableList<ToDo>):RecyclerView.Adapter<TodoAd
     override fun getItemCount(): Int {
         return todoModel.size
     }
+//    class ToDoViewHolder(itemView : View): RecyclerView.ViewHolder(itemView){
+//
+//    }
 }

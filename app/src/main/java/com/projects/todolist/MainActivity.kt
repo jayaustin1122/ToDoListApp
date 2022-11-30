@@ -42,11 +42,14 @@ class MainActivity : AppCompatActivity(){
         binding.topAppBar.setNavigationOnClickListener(){
 
         }
+        binding.floatingActionButton.setOnClickListener(){
+            addDialog()
+        }
 
 
         binding.topAppBar.setOnMenuItemClickListener(){menuItem->
             when(menuItem.itemId){
-                R.id.add->{
+                R.id.aboutApp->{
                     addDialog()
                     true
                 }
@@ -95,6 +98,7 @@ class MainActivity : AppCompatActivity(){
                     ).apply {
                         setAction("Undo"){
                             adapter.todoModel.add(item)
+                            adapter.notifyDataSetChanged()
                         }
                         show()
                     }
@@ -132,8 +136,8 @@ class MainActivity : AppCompatActivity(){
         dialog.setContentView(binding.root)
         dialog.show()
         binding.btnAdd2.setOnClickListener() {
-            if(binding.etName2.length() >=1 ) {
-                var name: String = binding.etName2.text.toString()
+            if(binding.etNewName.length() >=1 ) {
+                var name: String = binding.etNewName.text.toString()
                 val todo = ToDo(name)
                 save(todo)
                 adapter.todoModel.add(todo)
@@ -146,7 +150,7 @@ class MainActivity : AppCompatActivity(){
             }
         }
         binding.btnReset2.setOnClickListener() {
-            binding.etName2.text.clear()
+            binding.etNewName.text?.clear()
         }
     }
     private fun swipeToDelete(){
@@ -173,6 +177,7 @@ class MainActivity : AppCompatActivity(){
                     .apply {
                         setAction("Undo"){
                         adapter.todoModel.add(item)
+                        adapter.notifyDataSetChanged()
                     }
                     show()
                 }

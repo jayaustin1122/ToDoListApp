@@ -1,5 +1,6 @@
 package com.projects.todolist.db
 
+import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
@@ -23,4 +24,10 @@ interface ToDoDao {
     fun deleteAll()
     @Query("SELECT * FROM TODO WHERE TODO LIKE :searchQuery")
     fun searchDataBase(searchQuery:String):MutableList<ToDo>
+
+    @Query("Select * from todo where isFinished == 0")
+    fun getTask(): LiveData<List<ToDo>>
+
+    @Query("Update todo Set isFinished = 1 where id=:uid")
+    fun finishTask(uid:Long)
 }

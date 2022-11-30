@@ -5,13 +5,34 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textField"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:background="@color/fulltrans"
+        android:hint="Add new task"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etNewName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@color/Mildtrans"
+            android:textColor="@color/black"
+            android:textColorHighlight="@color/Blue" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
     <Button
         android:id="@+id/btnReset2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@color/fulltrans"
         android:text="Clear"
         android:textColor="@color/Blue"
-        android:background="@color/fulltrans"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/btnAdd2"
@@ -21,27 +42,12 @@
         android:id="@+id/btnAdd2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@color/fulltrans"
         android:text="add"
         android:textColor="@color/Blue"
-        android:background="@color/fulltrans"
         app:layout_constraintEnd_toStartOf="@+id/btnReset2"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etName2" />
+        app:layout_constraintTop_toBottomOf="@+id/textField" />
 
-    <EditText
-        android:id="@+id/etName2"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="10dp"
-        android:ems="10"
-        android:hint="Add new"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="TouchTargetSizeCheck" />
 </androidx.constraintlayout.widget.ConstraintLayout>
