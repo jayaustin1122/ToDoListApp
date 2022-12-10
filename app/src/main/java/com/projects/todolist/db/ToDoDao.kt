@@ -11,23 +11,23 @@ interface ToDoDao {
     @Insert
     fun addToDo(toDo: ToDo)
 
-    @Query("SELECT * FROM ToDo")
+    @Query("SELECT * FROM todolist")
     fun getAllToDos():MutableList<ToDo>
 
-    @Query("UPDATE ToDo SET todo = :name WHERE id = :id")
-    fun updateToDo(name:String,id:Int)
+    @Query("UPDATE todolist SET todo = :name, time =:time,date = :date where id like :id")
+    fun updateToDo(name:String,
+                   date:String,
+                   time: String,
+                   id: Long
+    )
 
-    @Query("DELETE FROM ToDo WHERE id = :id")
-    fun deleteToDo(id:Int)
+    @Query("DELETE FROM todolist WHERE id = :id")
+    fun deleteToDo(id:Long)
 
-    @Query("DELETE  FROM TODO")
+    @Query("DELETE  FROM todolist")
     fun deleteAll()
-    @Query("SELECT * FROM TODO WHERE TODO LIKE :searchQuery")
-    fun searchDataBase(searchQuery:String):MutableList<ToDo>
 
-    @Query("Select * from todo where isFinished == 0")
-    fun getTask(): LiveData<List<ToDo>>
+    @Query("SELECT * from todolist where id Like :id")
+    fun get(id : Long): ToDo
 
-    @Query("Update todo Set isFinished = 1 where id=:uid")
-    fun finishTask(uid:Long)
 }

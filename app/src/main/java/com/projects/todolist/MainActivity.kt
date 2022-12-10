@@ -24,12 +24,19 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import java.util.*
 
 class MainActivity : AppCompatActivity(){
     lateinit var binding: ActivityMainBinding
     lateinit var worksDB: WorksDatabase
     lateinit var adapter: TodoAdapter
+    val c = Calendar.getInstance()
 
+    val month: Int = c.get(Calendar.MONTH)
+    val year: Int = c.get(Calendar.YEAR)
+    val day: Int = c.get(Calendar.DAY_OF_MONTH)
+
+    var cal = Calendar.getInstance()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)

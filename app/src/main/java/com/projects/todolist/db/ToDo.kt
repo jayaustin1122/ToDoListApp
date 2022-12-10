@@ -5,16 +5,13 @@ import androidx.room.PrimaryKey
 
 
 
-@Entity
+@Entity(tableName = "todolist")
 data class ToDo (var todo : String,
-                 var description:String,
-                 var category: String,
-                 var date:Long,
-                 var time:Long,
-                 var isFinished : Int = 0
+                 val time : String,
+                 val date : String
 
 ){
     @PrimaryKey(autoGenerate = true)
-    var id : Int = 0
+    var id : Long = 0
 
 }

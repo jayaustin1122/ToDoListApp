@@ -36,7 +36,5 @@ class TodoAdapter(var todoModel : MutableList<ToDo>):RecyclerView.Adapter<TodoAd
     override fun getItemCount(): Int {
         return todoModel.size
     }
-//    class ToDoViewHolder(itemView : View): RecyclerView.ViewHolder(itemView){
-//
-//    }
+
 }
